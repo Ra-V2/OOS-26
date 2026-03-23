@@ -1,0 +1,129 @@
+<?php //easyadmin.routes.route_to_fqcn
+
+return [PHP_INT_MAX, [
+    'admin' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => null,
+        'crudAction' => null,
+    ],
+    'admin_category_index' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\CategoryCrudController',
+        'crudAction' => 'index',
+    ],
+    'admin_category_new' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\CategoryCrudController',
+        'crudAction' => 'new',
+    ],
+    'admin_category_batch_delete' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\CategoryCrudController',
+        'crudAction' => 'batchDelete',
+    ],
+    'admin_category_autocomplete' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\CategoryCrudController',
+        'crudAction' => 'autocomplete',
+    ],
+    'admin_category_render_filters' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\CategoryCrudController',
+        'crudAction' => 'renderFilters',
+    ],
+    'admin_category_edit' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\CategoryCrudController',
+        'crudAction' => 'edit',
+    ],
+    'admin_category_delete' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\CategoryCrudController',
+        'crudAction' => 'delete',
+    ],
+    'admin_category_detail' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\CategoryCrudController',
+        'crudAction' => 'detail',
+    ],
+    'admin_product_index' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\ProductCrudController',
+        'crudAction' => 'index',
+    ],
+    'admin_product_new' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\ProductCrudController',
+        'crudAction' => 'new',
+    ],
+    'admin_product_batch_delete' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\ProductCrudController',
+        'crudAction' => 'batchDelete',
+    ],
+    'admin_product_autocomplete' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\ProductCrudController',
+        'crudAction' => 'autocomplete',
+    ],
+    'admin_product_render_filters' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\ProductCrudController',
+        'crudAction' => 'renderFilters',
+    ],
+    'admin_product_edit' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\ProductCrudController',
+        'crudAction' => 'edit',
+    ],
+    'admin_product_delete' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\ProductCrudController',
+        'crudAction' => 'delete',
+    ],
+    'admin_product_detail' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\ProductCrudController',
+        'crudAction' => 'detail',
+    ],
+    'admin_user_index' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\UserCrudController',
+        'crudAction' => 'index',
+    ],
+    'admin_user_new' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\UserCrudController',
+        'crudAction' => 'new',
+    ],
+    'admin_user_batch_delete' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\UserCrudController',
+        'crudAction' => 'batchDelete',
+    ],
+    'admin_user_autocomplete' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\UserCrudController',
+        'crudAction' => 'autocomplete',
+    ],
+    'admin_user_render_filters' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\UserCrudController',
+        'crudAction' => 'renderFilters',
+    ],
+    'admin_user_edit' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\UserCrudController',
+        'crudAction' => 'edit',
+    ],
+    'admin_user_delete' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\UserCrudController',
+        'crudAction' => 'delete',
+    ],
+    'admin_user_detail' => [
+        'dashboardControllerFqcn' => 'App\\Controller\\Admin\\DashboardController',
+        'crudControllerFqcn' => 'App\\Controller\\Admin\\UserCrudController',
+        'crudAction' => 'detail',
+    ],
+]];

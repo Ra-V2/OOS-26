@@ -1,0 +1,39 @@
+<?php //easyadmin.routes.fqcn_to_route
+
+return [PHP_INT_MAX, [
+    'App\\Controller\\Admin\\DashboardController' => [
+        '' => [
+            '' => 'admin',
+        ],
+        'App\\Controller\\Admin\\CategoryCrudController' => [
+            'index' => 'admin_category_index',
+            'new' => 'admin_category_new',
+            'batchDelete' => 'admin_category_batch_delete',
+            'autocomplete' => 'admin_category_autocomplete',
+            'renderFilters' => 'admin_category_render_filters',
+            'edit' => 'admin_category_edit',
+            'delete' => 'admin_category_delete',
+            'detail' => 'admin_category_detail',
+        ],
+        'App\\Controller\\Admin\\ProductCrudController' => [
+            'index' => 'admin_product_index',
+            'new' => 'admin_product_new',
+            'batchDelete' => 'admin_product_batch_delete',
+            'autocomplete' => 'admin_product_autocomplete',
+            'renderFilters' => 'admin_product_render_filters',
+            'edit' => 'admin_product_edit',
+            'delete' => 'admin_product_delete',
+            'detail' => 'admin_product_detail',
+        ],
+        'App\\Controller\\Admin\\UserCrudController' => [
+            'index' => 'admin_user_index',
+            'new' => 'admin_user_new',
+            'batchDelete' => 'admin_user_batch_delete',
+            'autocomplete' => 'admin_user_autocomplete',
+            'renderFilters' => 'admin_user_render_filters',
+            'edit' => 'admin_user_edit',
+            'delete' => 'admin_user_delete',
+            'detail' => 'admin_user_detail',
+        ],
+    ],
+]];
