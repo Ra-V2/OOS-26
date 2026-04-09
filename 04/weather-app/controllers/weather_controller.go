@@ -9,25 +9,40 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
+type Location struct {
+	City string `json:"city"`
+	Lat  string `json:"lat"`
+	Lon  string `json:"lon"`
+}
+
+type WeatherRequest struct {
+	Locations []Location `json:"locations"`
+}
+
 func GetWeather(c echo.Context) error {
 
-	city := c.QueryParam("city")
-	lat := c.QueryParam("lat")
-	lon := c.QueryParam("lon")
+	req := new(WeatherRequest)
 
-	apiData, err := services.GetWeatherFromAPI(lat, lon)
-
-	if err != nil {
-		return c.JSON(http.StatusInternalServerError, err)
+	if err := c.Bind(req); err != nil {
+		return err
 	}
 
-	weather := models.Weather{
-		City:        city,
-		Temperature: apiData.CurrentWeather.Temperature,
-		Description: "External API",
+	var results []models.Weather
+
+	for _, loc := range req.Locations {
+
+		apiData, _ := services.GetWeatherFromAPI(loc.Lat, loc.Lon)
+
+		weather := models.Weather{
+			City:        loc.City,
+			Temperature: apiData.CurrentWeather.Temperature,
+			Description: "External API",
+		}
+
+		database.DB.Create(&weather)
+
+		results = append(results, weather)
 	}
 
-	database.DB.Create(&weather)
-
-	return c.JSON(http.StatusOK, weather)
+	return c.JSON(http.StatusOK, results)
 }

@@ -14,7 +14,8 @@ func main() {
 
 	e := echo.New()
 
-	e.GET("/weather", controllers.GetWeather)
+	e.GET("/weather", controllers.GetWeather)  // single city weather endpoint (query parameters)
+	e.POST("/weather", controllers.GetWeather) // multiple cities weather endpoint (JSON body)
 
 	e.Start(":8080")
 }
