@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useCart } from "../context/cartContextCore";
+import API_URL from "../api";
 
 type Product = {
     id: number;
@@ -13,7 +14,7 @@ export default function Products() {
     const { addToCart } = useCart();
 
     useEffect(() => {
-        axios.get("http://localhost:5000/products")
+        axios.get(`${API_URL}/products`)
             .then((res) => setProducts(res.data));
     }, []);
 

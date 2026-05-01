@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useCart } from "../context/cartContextCore";
+import API_URL from "../api";
 
 export default function Payments() {
     const { cart } = useCart();
 
     const handlePayment = () => {
-        axios.post("http://localhost:5000/payments", { cart })
+        axios.post(`${API_URL}/payments`, { cart })
             .then((res) => console.log(res.data));
     };
 
