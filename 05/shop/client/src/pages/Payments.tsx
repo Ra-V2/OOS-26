@@ -1,24 +1,18 @@
 import axios from "axios";
+import { useCart } from "../context/cartContextCore";
 
 export default function Payments() {
-    const handlePayment = () => {
-        const paymentData = {
-            amount: 100,
-            currency: "PLN",
-        };
+    const { cart } = useCart();
 
-        axios
-            .post("http://localhost:5000/payments", paymentData)
-            .then((res) => {
-                console.log("Payment success:", res.data);
-            })
-            .catch((err) => console.error(err));
+    const handlePayment = () => {
+        axios.post("http://localhost:5000/payments", { cart })
+            .then((res) => console.log(res.data));
     };
 
     return (
         <div>
             <h1>Payments</h1>
-            <button onClick={handlePayment}>Pay</button>
+            <button onClick={handlePayment}>Pay for {cart.length} items</button>
         </div>
     );
 }
