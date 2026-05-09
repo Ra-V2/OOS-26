@@ -10,8 +10,8 @@ export default function Cart() {
             {cart.length === 0 ? (
                 <p>Cart is empty</p>
             ) : (
-                cart.map((item, index) => (
-                    <div key={index}>
+                cart.map((item) => (
+                    <div key={item.id}>
                         {item.name} - {item.price} zł
                     </div>
                 ))

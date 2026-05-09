@@ -1,22 +1,32 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useCart } from "../context/cartContextCore";
+import type { Product } from "../context/cartContextCore";
 import API_URL from "../api";
-
-type Product = {
-    id: number;
-    name: string;
-    price: number;
-};
 
 export default function Products() {
     const [products, setProducts] = useState<Product[]>([]);
+    const [error, setError] = useState<string | null>(null);
     const { addToCart } = useCart();
 
     useEffect(() => {
-        axios.get(`${API_URL}/products`)
-            .then((res) => setProducts(res.data));
+        let mounted = true;
+        const fetchProducts = async () => {
+            try {
+                const response = await axios.get<Product[]>(`${API_URL}/products`);
+                if (mounted) setProducts(response.data);
+            } catch {
+                if (mounted) setError("Failed to load products");
+            }
+        };
+
+        fetchProducts();
+        return () => {
+            mounted = false;
+        };
     }, []);
+
+    if (error) return <div>{error}</div>;
 
     return (
         <div>
