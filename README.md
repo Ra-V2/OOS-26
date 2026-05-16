@@ -9,4 +9,5 @@ A repository for storing exercises from the Object-Oriented Software course.
 - [Exercise 03](03/03.md)
 - [Exercise 04](04/04.md)
 - [Exercise 05](05/05.md)
-- [Exercise 08](08/08.md)
+- [Exercise 06](06/06.md)
+- [Exercise 07](07/07.md)
