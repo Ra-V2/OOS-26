@@ -9,16 +9,24 @@ public func configure(_ app: Application) async throws {
     // uncomment to serve files from /Public folder
     // app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
 
-    app.databases.use(DatabaseConfigurationFactory.postgres(configuration: .init(
-        hostname: Environment.get("DATABASE_HOST") ?? "localhost",
-        port: Environment.get("DATABASE_PORT").flatMap(Int.init(_:)) ?? SQLPostgresConfiguration.ianaPortNumber,
-        username: Environment.get("DATABASE_USERNAME") ?? "vapor_username",
-        password: Environment.get("DATABASE_PASSWORD") ?? "vapor_password",
-        database: Environment.get("DATABASE_NAME") ?? "vapor_database",
-        tls: .prefer(try .init(configuration: .clientDefault)))
-    ), as: .psql)
+    let hostname = Environment.get("DATABASE_HOST") ?? "localhost"
+    let port = Environment.get("DATABASE_PORT").flatMap(Int.init(_:)) ?? 5433
+    let username = Environment.get("DATABASE_USERNAME") ?? "vapor"
+    let password = Environment.get("DATABASE_PASSWORD") ?? "password"
+    let database = Environment.get("DATABASE_NAME") ?? "shopdb"
 
-    app.migrations.add(CreateTodo())
+    let config = SQLPostgresConfiguration(
+        hostname: hostname,
+        port: port,
+        username: username,
+        password: password,
+        database: database,
+        tls: .disable
+    )
+
+    app.databases.use(.postgres(configuration: config), as: .psql)
+
+    app.migrations.add(CreateProduct())
 
     app.views.use(.leaf)
 
