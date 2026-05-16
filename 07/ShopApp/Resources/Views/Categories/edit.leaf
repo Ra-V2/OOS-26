@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/styles.css">
+
+<div class="nav">
+    <div class="nav-left">
+        <b>ShopApp</b>
+    </div>
+
+    <div class="nav-right">
+        <a href="/web/products">Products</a>
+        <a href="/web/categories">Categories</a>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Edit Category</h1>
+
+    <form action="/web/categories/#(category.id)/update" method="POST">
+        <label>Name</label>
+        <input name="name" value="#(category.name)" />
+
+        <button class="btn" type="submit">Update</button>
+    </form>
+</div>

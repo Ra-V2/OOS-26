@@ -1,0 +1,149 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f6f8;
+    color: #222;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    background: #111827;
+    color: white;
+}
+
+.nav-left b {
+    font-size: 18px;
+    color: white;
+}
+
+.nav-right a {
+    margin-left: 12px;
+    text-decoration: none;
+    color: #e5e7eb;
+    font-weight: 500;
+}
+
+.nav-right a:hover {
+    color: white;
+}
+
+.center {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.center h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.center p {
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 16px;
+    background: #2563eb;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    margin: 5px;
+}
+
+.btn:hover {
+    background: #1d4ed8;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.btn {
+    padding: 8px 14px;
+    background: #2563eb;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border: none;
+}
+
+.btn:hover {
+    background: #1d4ed8;
+}
+
+.btn-edit {
+    background: #f59e0b;
+    padding: 6px 10px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    margin-right: 6px;
+}
+
+.btn-edit:hover {
+    background: #d97706;
+}
+
+.btn-delete {
+    background: #ef4444;
+    padding: 6px 10px;
+    border-radius: 6px;
+    color: white;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-delete:hover {
+    background: #dc2626;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 14px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background: #fafafa;
+
+    margin-bottom: 12px;
+}
+
+.badge {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 3px 8px;
+    font-size: 12px;
+    background: #e5e7eb;
+    border-radius: 999px;
+    color: #374151;
+}

@@ -11,12 +11,13 @@
     </div>
 </div>
 
-<div class="center">
-    <h1>Welcome to ShopApp</h1>
-    <p>Simple Vapor + Leaf CRUD application</p>
+<div class="container">
+    <h1>Create Category</h1>
 
-    <div>
-        <a class="btn" href="/web/products">View Products</a>
-        <a class="btn" href="/web/categories">View Categories</a>
-    </div>
+    <form action="/web/categories" method="POST">
+        <label>Name</label>
+        <input name="name" />
+
+        <button class="btn" type="submit">Create</button>
+    </form>
 </div>

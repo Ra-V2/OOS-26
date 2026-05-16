@@ -8,6 +8,7 @@ struct ProductController: RouteCollection {
 
         products.get(use: index)
         products.post(use: create)
+
         products.group(":id") { product in
             product.get(use: show)
             product.put(use: update)
@@ -20,7 +21,21 @@ struct ProductController: RouteCollection {
     }
 
     func create(req: Request) async throws -> Product {
-        let product = try req.content.decode(Product.self)
+
+        struct Input: Content {
+            let name: String
+            let price: Double
+            let categoryID: UUID
+        }
+
+        let input = try req.content.decode(Input.self)
+
+        let product = Product(
+            name: input.name,
+            price: input.price,
+            categoryID: input.categoryID
+        )
+
         try await product.save(on: req.db)
         return product
     }
@@ -28,16 +43,26 @@ struct ProductController: RouteCollection {
     func show(req: Request) async throws -> Product {
         guard let product = try await Product.find(req.parameters.get("id"), on: req.db)
         else { throw Abort(.notFound) }
+
         return product
     }
 
     func update(req: Request) async throws -> Product {
+
+        struct Input: Content {
+            let name: String
+            let price: Double
+            let categoryID: UUID
+        }
+
         guard let product = try await Product.find(req.parameters.get("id"), on: req.db)
         else { throw Abort(.notFound) }
 
-        let updated = try req.content.decode(Product.self)
-        product.name = updated.name
-        product.price = updated.price
+        let input = try req.content.decode(Input.self)
+
+        product.name = input.name
+        product.price = input.price
+        product.$category.id = input.categoryID
 
         try await product.save(on: req.db)
         return product

@@ -6,10 +6,9 @@ func routes(_ app: Application) throws {
         try await req.view.render("index", ["title": "Hello Vapor!"])
     }
 
-    app.get("hello") { req async -> String in
-        "Hello, world!"
-    }
-
     try app.register(collection: ProductController())
     try app.register(collection: ProductWebController())
+
+    try app.register(collection: CategoryController())
+    try app.register(collection: CategoryWebController())
 }

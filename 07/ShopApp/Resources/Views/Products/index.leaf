@@ -1,17 +1,44 @@
-<h1>Products</h1>
+<link rel="stylesheet" href="/styles.css">
 
-<a href="/web/products/new">Create new</a>
+<div class="nav">
+    <div class="nav-left">
+        <b>ShopApp</b>
+    </div>
 
-<ul>
-#for(product in products):
-    <li>
-        #(product.name) - $#(product.price)
+    <div class="nav-right">
+        <a href="/web/products">Products</a>
+        <a href="/web/categories">Categories</a>
+    </div>
+</div>
 
-        <a href="/web/products/#(product.id)/edit">Edit</a>
+<div class="container">
 
-        <form action="/web/products/#(product.id)/delete" method="POST" style="display:inline;">
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-#endfor
-</ul>
+    <div class="header">
+        <h1>Products</h1>
+        <a class="btn" href="/web/products/new">+ Create Product</a>
+    </div>
+
+    #for(product in products):
+        <div class="card">
+            <div>
+                <b>#(product.name)</b><br>
+                <small>$#(product.price)</small><br>
+
+                <span class="badge">
+                    #(product.category.name)
+                </span>
+            </div>
+
+            <div>
+                <a class="btn-edit" href="/web/products/#(product.id)/edit">Edit</a>
+
+                <form action="/web/products/#(product.id)/delete"
+                    method="POST"
+                    style="display:inline;">
+                    <button class="btn-delete">Delete</button>
+                </form>
+            </div>
+        </div>
+    #endfor
+
+</div>

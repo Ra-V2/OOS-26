@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/styles.css">
+
+<div class="nav">
+    <div class="nav-left">
+        <b>ShopApp</b>
+    </div>
+
+    <div class="nav-right">
+        <a href="/web/products">Products</a>
+        <a href="/web/categories">Categories</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Categories</h1>
+        <a class="btn" href="/web/categories/new">+ Create Category</a>
+    </div>
+
+    #for(category in categories):
+        <div class="card">
+            <div>
+                <b>#(category.name)</b>
+            </div>
+
+            <div>
+                <a class="btn-edit" href="/web/categories/#(category.id)/edit">Edit</a>
+
+                <form action="/web/categories/#(category.id)/delete"
+                      method="POST"
+                      style="display:inline;">
+                    <button class="btn-delete">Delete</button>
+                </form>
+            </div>
+        </div>
+    #endfor
+
+</div>

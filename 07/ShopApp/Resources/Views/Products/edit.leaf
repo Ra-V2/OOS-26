@@ -1,8 +1,35 @@
-<h1>Edit Product</h1>
+<link rel="stylesheet" href="/styles.css">
 
-<form action="/web/products/#(product.id)/update" method="POST">
-    <input name="name" value="#(product.name)" />
-    <input name="price" value="#(product.price)" />
+<div class="nav">
+    <div class="nav-left">
+        <b>ShopApp</b>
+    </div>
 
-    <button type="submit">Update</button>
-</form>
+    <div class="nav-right">
+        <a href="/web/products">Products</a>
+        <a href="/web/categories">Categories</a>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Edit Product</h1>
+
+    <form action="/web/products/#(product.id)/update" method="POST">
+        <label>Name</label>
+        <input name="name" value="#(product.name)" />
+
+        <label>Price</label>
+        <input name="price" value="#(product.price)" />
+
+        <label>Category</label>
+        <select name="categoryID">
+            #for(category in categories):
+                <option value="#(category.id)">
+                    #(category.name)
+                </option>
+            #endfor
+        </select>
+
+        <button class="btn" type="submit">Update</button>
+    </form>
+</div>
