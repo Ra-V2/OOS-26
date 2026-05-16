@@ -1,0 +1,8 @@
+<h1>Edit Product</h1>
+
+<form action="/web/products/#(product.id)/update" method="POST">
+    <input name="name" value="#(product.name)" />
+    <input name="price" value="#(product.price)" />
+
+    <button type="submit">Update</button>
+</form>

@@ -1,0 +1,17 @@
+<h1>Products</h1>
+
+<a href="/web/products/new">Create new</a>
+
+<ul>
+#for(product in products):
+    <li>
+        #(product.name) - $#(product.price)
+
+        <a href="/web/products/#(product.id)/edit">Edit</a>
+
+        <form action="/web/products/#(product.id)/delete" method="POST" style="display:inline;">
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+#endfor
+</ul>
